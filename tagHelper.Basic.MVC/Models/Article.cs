@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.Collections.Generic;
 
 namespace tagHelper.Basic.MVC.Models
 {
@@ -32,4 +33,6 @@ namespace tagHelper.Basic.MVC.Models
         public string FullName { get; set; }
         public string ContextUrl { get; set; }
     }
+
+    
 }

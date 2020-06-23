@@ -1,0 +1,25 @@
+﻿@using tagHelper.Basic.MVC.Services;
+@inject IDataReader dataReader;
+
+@{
+    List<Article> articles = dataReader.ReadArticles();
+}
+
+<div class="text-center">
+    <h3 class="display-4">Basic View Component</h3>
+    <p>Excercises from the PluralSight course - <a href="https://app.pluralsight.com/library/courses/aspdotnet-core-tag-helpers">ASP.NET Core Tag Helpes and View Components </a></p>
+</div>
+
+<div>
+    <h3>View Component Use</h3>
+    <br />
+
+    <div class="container" style="max-width:1000px">
+        <article-track track-name="Condensed Matter">
+            @for (int i = 0; i < 10; i++)
+            {
+                <vc:article-card article="@articles[i]"></vc:article-card>
+            }
+        </article-track>
+    </div>
+</div>
