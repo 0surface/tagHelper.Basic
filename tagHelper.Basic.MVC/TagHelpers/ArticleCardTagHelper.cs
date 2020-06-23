@@ -1,20 +1,19 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using System;
 using tagHelper.Basic.MVC.Models;
 
 namespace tagHelper.Basic.MVC.TagHelpers
 {
     // You may need to install the Microsoft.AspNetCore.Razor.Runtime package into your project
-    //[HtmlTargetElement("tag-name")]
+    [HtmlTargetElement("article-card")]
     public class ArticleCardTagHelper : TagHelper
     {
         public Article Article { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            string content = $@"<div class='card'>
-                                    <div class ='card-title'>{Article.Title}</div>
-                                    <div class='card-abstract'>{Article.AbstractText}</div>
+            string content = $@"<div class='card' style='width: 50rem;'>
+                                     <div class ='card-title'><i>{Article.Title}<i></div>
+                                    <p>{Article.AbstractText}</p>
                                 </div>
                 ";
 
@@ -22,6 +21,6 @@ namespace tagHelper.Basic.MVC.TagHelpers
             output.TagName = "div";
             output.Content.SetHtmlContent(content);
         }
-                
+
     }
 }

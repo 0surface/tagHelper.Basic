@@ -1,20 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace tagHelper.Basic.MVC.Models
 {
     public class Article
     {
-        public string ArxivId { get; private set; }
-        public string HtmlLink { get; private set; }
+        public string PageHeaderInfo { get; set; }
+        public string DateContextInfo { get; set; }
+        public string H3HeaderText { get; set; }
+
+        public string ArxivIdLabel { get; set; }
+        public string ArxivId { get; set; }
+        public string AbstractUrl { get; set; }
         public string PdfUrl { get; set; }
         public string OtherFormatUrl { get; set; }
-        public string Title { get; private set; }
-        public string AbstractText { get; private set; }
-        public string Comments { get; private set; }
-        public string JournalReference { get; private set; }
-        public string JournalReferenceHtmlLink { get; private set; }
-        public DateTime DisplayDate { get; private set; }
-        public DateTime ScrapedDate { get; private set; }
+        public string Title { get; set; }
+        public string Comments { get; set; }
+        public string AbstractText { get; set; }
+        public string[] PrimarySubject { get; set; }
+        public List<SubjectItemDto> SubjectItems { get; set; } = new List<SubjectItemDto>();
+        public List<AuthorDto> Authors { get; set; } = new List<AuthorDto>();
+    }
+    public class SubjectItemDto
+    {
+        public string Code { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class AuthorDto
+    {
+        public string Code { get; set; }
+        public string FullName { get; set; }
+        public string ContextUrl { get; set; }
     }
 }

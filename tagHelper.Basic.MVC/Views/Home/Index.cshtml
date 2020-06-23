@@ -13,5 +13,9 @@
     List<Article> articles = dataReader.ReadArticles();
 }
 <div>
-    <article-card>articles[0]</article-card>
+    @if (!string.IsNullOrWhiteSpace(articles[0].Title))
+    {
+        <article-card article="articles[0]"></article-card>
+        <article-card article="articles[1]"></article-card>
+    }
 </div>
