@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using tagHelper.Basic.MVC.Services;
 
 namespace tagHelper.Basic.MVC
 {
@@ -23,6 +24,7 @@ namespace tagHelper.Basic.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IDataReader, DataReader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
