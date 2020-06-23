@@ -14,7 +14,10 @@ namespace tagHelper.Basic.MVC.TagHelpers
         {
             string pdfUrl = $"{arxivBaseUrl}{Article.PdfUrl}";
             string truncatedAbstract = Truncate(Article.AbstractText, 100);
+            string imgSrc = @"~/subject/cond/-mat/cond-mat.mes-hall_nanotechnology.svg";
+
             string content = $@"<div class='card' style='max-width:500px'>
+                                    <img class='card-img-top' src='{imgSrc}' alt=''>
                                     <div class='card-body'>
                                         <h5 class ='card-title'>{Article.Title}</h5>
                                         <div class ='card-text'>{truncatedAbstract}</div>
