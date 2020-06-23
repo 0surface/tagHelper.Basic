@@ -9,12 +9,8 @@ namespace tagHelper.Basic.MVC.TagHelpers
         public string TrackName { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
-        {
-            string imgSrc = @"~/images/nanotechnology.svg";
-            string preContent = $@"
-                            <div class='card-img' style='width:auto;height:auto;'>
-                                <img src='{imgSrc}' class='card-img-top img-responsive'  alt='ASP.NET'>
-                            </div>
+        {   
+            string preContent = $@"                        
                             <h2>{TrackName}</h2>
                             <div class='row'>
                         ";

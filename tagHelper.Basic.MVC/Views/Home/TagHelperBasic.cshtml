@@ -1,26 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 @using tagHelper.Basic.MVC.Services;
 @inject IDataReader dataReader;
 
 <div class="text-center">
-    <h1 class="display-4">Tag Helpers and View Components</h1>    
+    <h3 class="display-4">Basic Tag Helpers</h3>
     <p>Excercises from the PluralSight course - <a href="https://app.pluralsight.com/library/courses/aspdotnet-core-tag-helpers">ASP.NET Core Tag Helpes and View Components </a></p>
 </div>
 
-@{ 
+@{
     List<Article> articles = dataReader.ReadArticles();
 }
 <div>
-    
+    @*Plain use of tag helper*@
+    <h3>Plain use of tag helper</h3>
+    <br />
+
+    <article-card article="articles[0]"></article-card>
+    <article-card article="articles[1]"></article-card>
+
     @*Parent tag helper usage*@
     <h3>Parent tag helper usage</h3>
     <br />
-    
+
     <div class="container" style="max-width:1000px">
         <article-track track-name="Condensed Matter">
-            @for (int i = 0; i < 200; i++)
+            @for (int i = 0; i < 100; i++)
             {
                 <vc:article-card article="@articles[i]"></vc:article-card>
             }

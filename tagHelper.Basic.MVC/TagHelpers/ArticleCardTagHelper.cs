@@ -13,14 +13,18 @@ namespace tagHelper.Basic.MVC.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             string pdfUrl = $"{arxivBaseUrl}{Article.PdfUrl}";
-            string truncatedAbstract = Truncate(Article.AbstractText, 100);            
-
-            string content = $@"<div class='card' style='max-width:500px'>                                    
+            string truncatedTitle = Truncate(Article.Title, 90);
+            string truncatedAbstract = Truncate(Article.AbstractText, 150);
+            
+            string content = $@"<div class='card' style='max-width:700px;max-height:250px'>                                     
                                     <div class='card-body'>
-                                        <h5 class ='card-title'>{Article.Title}</h5>
+                                        <div style = 'display: inline;'>
+                                            <div class='svg-icon' style = 'display: inline;'> <img src ='static/icons/cond-mat.mes-hall_nanotechnology.svg'></div>                                            
+                                            <div style='display: inline;'><h5 class ='card-title'>{truncatedTitle}</h5></div>
+                                        </div>
                                         <div class ='card-text'>{truncatedAbstract}</div>
                                         <p class='font-italic'>{Article.Comments}</p>
-                                        <a href='{pdfUrl}' class='card-link'>Pdf Link</a>
+                                        <a href='{pdfUrl}' class='card-link' >PDF</a>
                                       </div>
                                 </div>
                 ";
