@@ -13,9 +13,23 @@
     List<Article> articles = dataReader.ReadArticles();
 }
 <div>
-    @if (!string.IsNullOrWhiteSpace(articles[0].Title))
-    {
-        <article-card article="articles[0]"></article-card>
-        <article-card article="articles[1]"></article-card>
-    }
+    @*Plain use of tag helper*@
+    <h3>Plain use of tag helper</h3>
+    <br />
+
+    <article-card article="articles[0]"></article-card>
+    <article-card article="articles[1]"></article-card>
+
+    @*Parent tag helper usage*@
+    <h3>Parent tag helper usage</h3>
+    <br />
+    <div class="container" style="max-width:900px">
+        <article-track track-name="Condensed Matter Articles">
+            @for (int i = 0; i < 30; i++)
+            {
+                <vc:article-card article="@articles[i]"></vc:article-card>
+            }
+        </article-track>
+    </div>
+
 </div>
